@@ -23,12 +23,16 @@ months = list(monthly_challenges.keys())
 # Create your views here.
 def index(request):
     list_months = ""
-    for month in months:
-        redirect_path = reverse("month-challenge", args=[month])
-        list_months += f"<li><a href=\"{redirect_path}\">{month}</a></li>"
+    # for month in months:
+    #     redirect_path = reverse("month-challenge", args=[month])
+    #     list_months += f"<li><a href=\"{redirect_path}\">{month}</a></li>"
     # return HttpResponse("Index of the Challenges App!")
-    response_data = f"<ul>{list_months}</ul>"
-    return HttpResponse(response_data)
+    # response_data = f"<ul>{list_months}</ul>"
+    # return HttpResponse(response_data)
+
+    return render(request, "challenges/index.html", {
+        "months": months
+    })
 
 # def january(request):
 #     return HttpResponse("Challenge for January")
