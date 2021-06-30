@@ -16,11 +16,18 @@ monthly_challenges = {
     "november": "challenge for november",
     "december": "challenge for december"
 }
+months = list(monthly_challenges.keys())
 
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Index of the Challenges App!")
+    list_months = ""
+    for month in months:
+        redirect_path = reverse("month-challenge", args=[month])
+        list_months += f"<li><a href=\"{redirect_path}\">{month}</a></li>"
+    # return HttpResponse("Index of the Challenges App!")
+    response_data = f"<ul>{list_months}</ul>"
+    return HttpResponse(response_data)
 
 # def january(request):
 #     return HttpResponse("Challenge for January")
@@ -30,7 +37,7 @@ def index(request):
 
 
 def monthly_challenge_by_number(request, month):
-    months = list(monthly_challenges.keys())
+    # months = list(monthly_challenges.keys())
 
     if month > len(months):
         return HttpResponseNotFound("Invalid month!")
