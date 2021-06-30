@@ -15,7 +15,7 @@ monthly_challenges = {
     "september": "challenge for september",
     "october": "challenge for october",
     "november": "challenge for november",
-    "december": "challenge for december"
+    "december": None
 }
 months = list(monthly_challenges.keys())
 
