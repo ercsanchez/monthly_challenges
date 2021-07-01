@@ -60,9 +60,8 @@ def monthly_challenge(request, month):
         # response_data = f"<h1>{challenge_text}</h1>"
         # response_data = render_to_string("challenges/challenge.html")
         # return HttpResponse(response_data)
-        capitalized_month = month.capitalize()
         return render(request, "challenges/challenge.html", {
-            "month": capitalized_month,
+            "month": month,
             "text": challenge_text
         })
     except:
